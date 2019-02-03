@@ -19,3 +19,15 @@
 	 // hint: take the total likes as a prop, and convert it to state
 
 import React from 'react';
+
+class Likes extends React.Component {
+  render() {
+    return (
+      <div className='Likes'>
+        <input type="button" value="Like" />
+      </div>
+    )
+  }
+}
+
+export { Likes as default }
