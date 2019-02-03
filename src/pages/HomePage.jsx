@@ -21,11 +21,28 @@ import ImageUploaderForm from "../components/ImageUploaderForm.jsx";
 import FeedList from "../components/FeedList.jsx";
 
 class HomePage extends React.Component {
+  state = {
+    photos: data.photos
+  };
+
+  handleAddPhoto = userUrl => {
+    this.setState({
+      photos: this.state.photos.concat({
+        // change the values to get from ImageUploaderForm
+        id: 15,
+        title: "Beautiful cat",
+        url: userUrl,
+        likes: 1000,
+        userLiked: false
+      })
+    });
+  };
+
   render() {
     return (
       <div className="HomePage">
-        <ImageUploaderForm />
-        <FeedList photos={data.photos} />
+        <ImageUploaderForm handleAddPhoto={this.handleAddPhoto} />
+        <FeedList photos={this.state.photos} />
       </div>
     );
   }
