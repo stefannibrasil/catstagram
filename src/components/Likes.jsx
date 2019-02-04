@@ -21,12 +21,10 @@
 import React from "react";
 
 class Likes extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      liked: false
-    };
-  }
+  state = {
+    liked: false,
+    likes: this.props.likes
+  };
 
   handleLike = () => {
     this.setState({
@@ -36,12 +34,14 @@ class Likes extends React.Component {
   };
 
   countLikes = () => {
-    let likes = this.props.likes;
-    this.state.liked === true ? likes++ : likes--;
+    const likes = this.state.likes;
+    this.setState({
+      likes: this.state.liked === true ? likes - 1 : likes + 1
+    });
   };
 
   render() {
-    const { likes } = this.props;
+    const { likes } = this.state;
     return (
       <div className="Likes">
         <input type="button" value={likes} />
