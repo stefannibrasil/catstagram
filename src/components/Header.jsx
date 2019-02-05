@@ -11,19 +11,24 @@
 // check that your links work!
 
 import React from "react";
+import { Link } from "react-router-dom";
 
-class Header extends React.Component {
-  render() {
-    return (
-      <ul className="Header">
-        <li className="Logo">GDInsta</li>
-        <li>Catstagram</li>
-        <li>Home</li>
-        <li>About</li>
-        <li>Profile</li>
-      </ul>
-    );
-  }
-}
+const Header = () => {
+  return (
+    <ul className="Header">
+      <li>
+        <Link to="/" className="Logo">
+          Catstagram
+        </Link>
+      </li>
+      <li>
+        <Link to="/about">About</Link>
+      </li>
+      <li>
+        <Link to="/profile">Profile</Link>
+      </li>
+    </ul>
+  );
+};
 
 export { Header as default };
